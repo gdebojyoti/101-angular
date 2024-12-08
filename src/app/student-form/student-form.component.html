@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- Name Input -->
+  <label for="name">Name:</label>
+  <input id="name" type="text" formControlName="name" required />
+
+  <!-- Gender Radio Buttons -->
+  <label>Gender:</label>
+  <label>
+    <input type="radio" value="male" formControlName="gender" /> Male
+  </label>
+  <label>
+    <input type="radio" value="female" formControlName="gender" /> Female
+  </label>
+
+  <!-- Agree Checkbox -->
+  <label>
+    <input type="checkbox" formControlName="terms" /> I agree to the terms and conditions
+  </label>
+
+  <!-- Age Dropdown -->
+  <label for="age">Age:</label>
+  <select id="age" formControlName="age">
+    <option value="" disabled>Select an option</option>
+    <option value="below-25">Below 25</option>
+    <option value="above-25">Above 25</option>
+  </select>
+
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
