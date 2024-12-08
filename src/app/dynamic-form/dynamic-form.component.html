@@ -1,0 +1,32 @@
+<form class="dynamic-form" [formGroup]="form" (ngSubmit)="onSubmit($event)">
+  <div *ngFor="let field of config" class="form-field">
+    <label [for]="field.key">{{ field.label }}</label>
+
+    <!-- Text Input -->
+    <input
+      *ngIf="field.type === 'text'"
+      [id]="field.key"
+      [formControlName]="field.key"
+      [type]="field.type"
+    />
+
+    <!-- Dropdown -->
+    <select *ngIf="field.type === 'dropdown'" [id]="field.key" [formControlName]="field.key">
+      <option *ngFor="let option of field.options" [value]="option.key">
+        {{ option.label }}
+      </option>
+    </select>
+
+    <!-- Checkbox -->
+    <div *ngIf="field.type === 'checkbox'" class="checkbox-field">
+      <input
+        type="checkbox"
+        [id]="field.key"
+        [formControlName]="field.key"
+      />
+      {{ field.label }}
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>
