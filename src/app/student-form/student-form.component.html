@@ -1,30 +1,40 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <!-- Name Input -->
-  <label for="name">Name:</label>
-  <input id="name" type="text" formControlName="name" required />
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="student-form">
+  <div class="form-field">
+    <!-- Name Input -->
+    <label for="name">Name:</label>
+    <input id="name" type="text" formControlName="name" required />
+  </div>
 
-  <!-- Gender Radio Buttons -->
-  <label>Gender:</label>
-  <label>
-    <input type="radio" value="male" formControlName="gender" /> Male
-  </label>
-  <label>
-    <input type="radio" value="female" formControlName="gender" /> Female
-  </label>
+  <div class="form-field">
+    <!-- Gender Radio Buttons -->
+    <label>Gender:</label>
+    <label>
+      <input type="radio" value="male" formControlName="gender" /> Male
+    </label>
+    <label>
+      <input type="radio" value="female" formControlName="gender" /> Female
+    </label>
+  </div>
 
-  <!-- Agree Checkbox -->
-  <label>
-    <input type="checkbox" formControlName="terms" /> I agree to the terms and conditions
-  </label>
+  <div class="form-field">
+    <!-- Age Dropdown -->
+    <label for="age">Age:</label>
+    <select id="age" formControlName="age">
+      <option value="" disabled>Select an option</option>
+      <option value="below-25">Below 25</option>
+      <option value="above-25">Above 25</option>
+    </select>
+  </div>
 
-  <!-- Age Dropdown -->
-  <label for="age">Age:</label>
-  <select id="age" formControlName="age">
-    <option value="" disabled>Select an option</option>
-    <option value="below-25">Below 25</option>
-    <option value="above-25">Above 25</option>
-  </select>
+  <div class="form-field">
+    <!-- Agree Checkbox -->
+    <label>
+      <input type="checkbox" formControlName="terms" /> I agree to the terms and conditions
+    </label>
+  </div>
 
-  <!-- Submit Button -->
-  <button type="submit" [disabled]="form.invalid">Submit</button>
+  <div class="form-field">
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </div>
 </form>
